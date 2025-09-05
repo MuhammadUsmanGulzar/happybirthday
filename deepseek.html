@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5c3e6, #b19cd9, #87ceeb);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            z-index: 1;
+            animation: floatBubble 12s linear infinite;
+            bottom: -100px;
+        }
+        
+        @keyframes floatBubble {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-400px) translateX(100px) rotate(180deg);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-800px) translateX(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .header {
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #ff4d94;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        .heart {
+            color: #ff4d94;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
+        .message-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-box:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #ff4d94, #b19cd9, #87ceeb);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .signature {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #ff4d94;
+            margin-top: 20px;
+        }
+        
+        .memory-box {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .memory-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .memory-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .memory-icon {
+            font-size: 3rem;
+            color: #ff4d94;
+            margin-bottom: 15px;
+        }
+        
+        .wish-button {
+            background: #ff4d94;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 77, 148, 0.4);
+        }
+        
+        .wish-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 77, 148, 0.6);
+        }
+        
+        .cake-container {
+            margin: 40px 0;
+            position: relative;
+            height: 200px;
+        }
+        
+        .cake {
+            width: 200px;
+            height: 120px;
+            background: #f8bbd0;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .frosting {
+            height: 40px;
+            background: #f48fb1;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .candle {
+            width: 10px;
+            height: 60px;
+            background: #7e57c2;
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .flame {
+            width: 20px;
+            height: 40px;
+            background: #ffd54f;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px #ffd54f;
+            animation: flicker 1s infinite alternate;
+            cursor: pointer;
+        }
+        
+        .balloon {
+            width: 50px;
+            height: 60px;
+            border-radius: 50%;
+            position: absolute;
+            animation: float 12s infinite;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            opacity: 0;
+            animation: confettiFall 5s infinite;
+        }
+        
+        .heart-container {
+            margin: 30px 0;
+            position: relative;
+            height: 150px;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            font-size: 2rem;
+            color: #ff4d94;
+            animation: floatHearts 10s infinite;
+        }
+        
+        footer {
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+            100% { transform: translateX(-50%) scale(0.9); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0); }
+        }
+        
+        @keyframes confettiFall {
+            0% { opacity: 1; transform: translateY(-100px) rotate(0); }
+            10% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(800px) rotate(720deg); }
+        }
+        
+        @keyframes floatHearts {
+            0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+            100% { transform: translate(100px, -300px) rotate(720deg); opacity: 0; }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .message-box { padding: 20px; }
+            p { font-size: 1rem; }
+            .memory-item { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Happy Birthday <span class="heart"><i class="fas fa-heart"></i></span> My Love</h1>
+            <p class="subtitle">Today is all about you, and you deserve the world!</p>
+        </div>
+        
+        <div class="message-box">
+            <p>My Dearest Madam G,</p>
+            <p>On this special day, I want you to know how incredibly blessed I am to have you in my life. Your smile lights up my world, your laughter is my favorite melody, and your love is the greatest gift I've ever received.</p>
+            <p>You are the most amazing person I know - kind, beautiful, intelligent, and with a heart of gold. I admire your strength, your passion, and the way you make everything around you better.</p>
+            <p>Today, I wish you all the happiness, love, and joy in the world. May your day be as radiant as your smile and as wonderful as you are.</p>
+            <p>I love you more than words can express!</p>
+            <div class="signature">Forever Yours</div>
+        </div>
+        
+        <div class="heart-container">
+            <i class="fas fa-heart floating-heart" style="left: 10%; animation-delay: 0s;"></i>
+            <i class="fas fa-heart floating-heart" style="left: 20%; animation-delay: 1s;"></i>
+            <i class="fas fa-heart floating-heart" style="left: 30%; animation-delay: 2s;"></i>
+            <i class="fas fa-heart floating-heart" style="left: 40%; animation-delay: 3s;"></i>
+            <i class="fas fa-heart floating-heart" style="left: 50%; animation-delay: 4s;"></i>
+            <i class="fas fa-heart floating-heart" style="left: 60%; animation-delay: 5s;"></i>
+            <i class="fas fa-heart floating-heart" style="left: 70%; animation-delay: 6s;"></i>
+            <i class="fas fa-heart floating-heart" style="left: 80%; animation-delay: 7s;"></i>
+            <i class="fas fa-heart floating-heart" style="left: 90%; animation-delay: 8s;"></i>
+        </div>
+        
+        <div class="memory-box">
+            <div class="memory-item">
+                <div class="memory-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>What I Love About You</h3>
+                <p>Your kindness, your smile, and the way you make every day brighter just by being you.</p>
+            </div>
+            
+            <div class="memory-item">
+                <div class="memory-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <h3>My Wish For You</h3>
+                <p>A year filled with joy, laughter, and all the happiness you bring to others.</p>
+            </div>
+            
+            <div class="memory-item">
+                <div class="memory-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>My Promise</h3>
+                <p>To always cherish you, support you, and love you more with each passing day.</p>
+            </div>
+        </div>
+        
+        <button class="wish-button" id="wishButton">Make a Wish! <i class="fas fa-birthday-cake"></i></button>
+        
+        <div class="cake-container">
+            <div class="cake">
+                <div class="frosting"></div>
+                <div class="candle"></div>
+                <div class="flame" id="candleFlame"></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Created with <i class="fas fa-heart" style="color: #ff4d94;"></i> for the most special person in my life</p>
+    </footer>
+
+    <script>
+        // Create bubbles
+        function createBubbles() {
+            const bubblesCount = 30;
+            
+            for (let i = 0; i < bubblesCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                // Random size between 20 and 100 pixels
+                const size = Math.random() * 80 + 20;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                
+                // Random horizontal position
+                bubble.style.left = Math.random() * 100 + 'vw';
+                
+                // Random animation duration between 8 and 15 seconds
+                const duration = Math.random() * 7 + 8;
+                bubble.style.animationDuration = duration + 's';
+                
+                // Random delay
+                bubble.style.animationDelay = Math.random() * 5 + 's';
+                
+                document.body.appendChild(bubble);
+            }
+        }
+        
+        // Create decorations
+        function createDecorations() {
+            // Create balloons
+            const colors = ['#ff4d94', '#b19cd9', '#87ceeb', '#ffd54f', '#a5d6a7'];
+            for (let i = 0; i < 15; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.bottom = '-100px';
+                balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+                balloon.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(balloon);
+            }
+            
+            // Create confetti
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(confetti);
+            }
+        }
+        
+        // Handle wish button click
+        document.getElementById('wishButton').addEventListener('click', function() {
+            this.innerHTML = 'Your Wish Will Come True! <i class="fas fa-magic"></i>';
+            this.style.background = '#7e57c2';
+            
+            // Create floating hearts
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '<i class="fas fa-heart" style="color: #ff4d94;"></i>';
+                heart.style.position = 'fixed';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.opacity = '0';
+                heart.style.transition = 'all 4s ease-out';
+                document.body.appendChild(heart);
+                
+                // Animate the heart
+                setTimeout(() => {
+                    heart.style.opacity = '1';
+                    heart.style.transform = 'translateY(-100vh)';
+                }, 10);
+                
+                // Remove heart after animation
+                setTimeout(() => {
+                    document.body.removeChild(heart);
+                }, 4000);
+            }
+            
+            // Blow out candle
+            document.getElementById('candleFlame').style.display = 'none';
+            
+            // Create extra bubbles for celebration
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                const size = Math.random() * 60 + 20;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                
+                bubble.style.left = Math.random() * 100 + 'vw';
+                
+                const duration = Math.random() * 5 + 5;
+                bubble.style.animationDuration = duration + 's';
+                
+                document.body.appendChild(bubble);
+            }
+        });
+        
+        // Initialize when page loads
+        window.onload = function() {
+            createBubbles();
+            createDecorations();
+        };
+    </script>
+</body>
+</html>
